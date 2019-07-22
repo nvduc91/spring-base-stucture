@@ -1,21 +1,22 @@
 /***************************************************************************
  * My own - All rights reserved.                *    
  **************************************************************************/
-package nvd.spring.helper.basic.model.response;
+package nvd.spring.structure.basic.response;
 
 /**
  *  Author : Nguyen Viet Duc
  *          Email:duc91.nvd@gmai.com
  * Jul 14, 2019
+ *
  */
-public class DataResponse<O> {
+public class Payload<O> {
 
-  public DataResponse(){}
-  public DataResponse(O data){
+  public Payload(){}
+  public Payload(O data){
     this.data = data;
   }
   
-  public DataResponse(O data, Object meta, int stt){
+  public Payload(O data, Object meta, int stt){
       this.data = data;
       this.meta = meta;
       this.status_code = stt;

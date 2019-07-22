@@ -5,7 +5,7 @@
  * 
  * My own - All rights reserved.
  **************************************************************************/
-package nvd.spring.helper.basic.model.exception;
+package nvd.spring.structure.basic.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -48,8 +48,12 @@ public class ExpectException extends Exception {
     return String.format("{ \"code\" : %s, \"message\" : %s, \"detail\" : %s}", code, message, detail);
   }
   
-  public static final class UNKNOWN {
-    public ExpectException build(String detail) { return new ExpectException(ExpectExceptionCode.UNKOWN.value(), ExpectExceptionCode.UNKOWN.message(), detail); }
+  public static class UNKNOWN {
+    public APIError build(String detail) {
+      return new APIError.Builder(ExpectExceptionCode.UNKNOWN)
+              .withMessage(ExpectExceptionCode.UNKNOWN_MESSAGE)
+              .details(detail)
+              .build();
+    }
   }
-  
 }
